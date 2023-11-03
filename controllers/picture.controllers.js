@@ -8,7 +8,7 @@ module.exports = {
   inputPict: async (req, res, next) => {
     try {
       let { judul, deskripsi } = req.body;
-      if (!deskripsi) throw 'Masukkan Judul dan Deskripsi';
+      if (!judul || !deskripsi) throw 'Masukkan Judul dan Deskripsi';
       let strFile = req.file.buffer.toString('base64');
 
       const { url, fileId } = await Imagekit.upload({
